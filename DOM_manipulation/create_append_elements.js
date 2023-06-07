@@ -5,12 +5,9 @@ function createListItem(item) {
     const text = document.createTextNode(item);
     li.appendChild(text);
 
-    const button = document.createElement('button');
-    button.className = 'remove-item btn-link text-red';
+    const icon = createIcon();
 
-    const icon = document.createElement('i');
-    icon.className = "fa-solid fa-xmark";
-
+    const button = createButton()
     button.appendChild(icon);
 
     li.appendChild(button);
@@ -18,8 +15,23 @@ function createListItem(item) {
     document.querySelector('.items').appendChild(li);
 }
 
+function createButton() {
+    const button = document.createElement('button');
+    button.className = 'remove-item btn-link text-red';
+
+    return button
+}
+
+function createIcon() {
+    const icon = document.createElement('i');
+    icon.className = "fa-solid fa-xmark";
+
+    return icon;
+}
+
 shopping_list = [
-    'cheese', 'eggs', 'hummus',
+    'cheese', 'eggs', 'hummus', 'blueberry',
+    'blackberry'
 ];
 
 for (shopping_item of shopping_list) {
